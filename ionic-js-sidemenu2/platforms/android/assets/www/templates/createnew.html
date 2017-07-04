@@ -1,0 +1,51 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Login</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="cancelCreate()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="createProject()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Project Name</span>
+                    <input type="text" required ng-model="project.name" >
+                    <input type="hidden" ng-model="project.id" >
+                </label>
+                <h4>
+                    Warm up Kiln 
+                </h4>
+                <div ng-repeat="condition in project.condition track by $index">
+                    <label class="item item-input">
+                        <span class="input-label">To</span>
+                        <input type="number" required min="0" max="2000" ng-model="condition.temperature"> F
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Ramp Speed</span>
+                        <input type="number" required min="0" max="300" ng-model="condition.rampspeed"> degrees/hour
+                        <!--TODO set max for ramp speed look up in manual-->
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">maintain for</span>
+                        <!--TODO set in hours instead of minutes-->
+                        <input type="number" required min="0" ng-model="condition.time">
+                        minutes
+                    </label>
+                </div>
+                <label class="item">
+                    <button class="button button-block button-positive" type="button" ng-click="addCondition()">Add Condition</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="button" ng-click="removeCondition()">Remove Condition</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Save Project</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" ng-click="back()">Back</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>
