@@ -59,10 +59,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             views: {
                 'mainmenuContent': {
                     templateUrl: 'templates/editproject.html',
+                    controller: 'StartnewCtrl'
                 }
             }
 
         })
+
+    //Edit Projects child of Start new Project
+    //Recycle Create new page to Edit data
+    .state('app.editprojectid', {
+        url: '/editproject/:id',
+        views: {
+            'mainmenuContent': {
+                templateUrl: 'templates/createnew.html',
+                controller: 'EditCtrl'
+            }
+        }
+
+    })
 
   //Create new Project child of Start new Project
        .state('app.createnew', {

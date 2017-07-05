@@ -1,5 +1,11 @@
 ﻿<ion-view view-title="Edit Projects">
     <ion-content>
         <h1>Edit Projects</h1>
+        <ion-list>
+            <!--Dynamically creating link to edit projects-->
+            <ion-item href="#/app/editproject/{{project.id}}" ng-repeat="project in projects">
+                {{project.name}}
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
