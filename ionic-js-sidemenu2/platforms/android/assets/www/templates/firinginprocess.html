@@ -1,0 +1,26 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Login</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="cancelCreate()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="createProject()">
+            <div class="list">
+                <h2>
+                    Firing in Process
+                </h2>
+                <label class="item">
+                    <button class="button button-block button-positive" type="button" ng-click="removeCondition()">Remove Condition</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">^</button>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive">Safe Shutoff</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>>

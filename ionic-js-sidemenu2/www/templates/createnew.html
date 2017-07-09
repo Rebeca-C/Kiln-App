@@ -33,18 +33,22 @@
                         minutes
                     </label>
                 </div>
-                <label class="item">
+                <label class="item project-button">
                     <button class="button button-block button-positive" type="button" ng-click="addCondition()">Add Condition</button>
                 </label>
-                <label class="item">
+                <label class="item project-button">
                     <button class="button button-block button-positive" type="button" ng-click="removeCondition()">Remove Condition</button>
                 </label>
-                <label class="item">
+                <label class="item project-button">
                     <button class="button button-block button-positive" type="submit">Save Project</button>
                 </label>
-                <label class="item">
+                <label ng-if="showDelete" class="item project-button">
+                    <button class="button button-block button-positive" ng-click="remove()">Delete Project</button>
+                </label>
+                <label class="item project-button">
                     <button class="button button-block button-positive" ng-click="back()">Back</button>
                 </label>
+
             </div>
         </form>
     </ion-content>

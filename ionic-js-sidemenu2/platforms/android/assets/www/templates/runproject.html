@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<ion-view>
+    <ion-content>
+        <label class="item no-border text-center ">
+            Do you want to run {{project.name}}?
+        </label>
+        <ion-item>
+            <button class="button button-block button-positive" type="button" ng-click="run()">Yes</button>
+            <button class="button button-block button-positive" type="button" ng-click="back()">No</button>
+        </ion-item>
+        <div ng-repeat="condition in project.condition track by $index">
+            <label class="item item-input">
+                <span class="input-label">To</span>
+                {{condition.temperature}} F
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Ramp Speed</span>
+                {{condition.rampspeed}} degrees/hour
+                <!--TODO set max for ramp speed look up in manual-->
+            </label>
+            <label class="item item-input">
+                <span class="input-label">maintain for</span>
+                <!--TODO set in hours instead of minutes-->
+                {{condition.time}}
+                minutes
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
+</html>

@@ -13,6 +13,8 @@
             </ion-nav-buttons>
         </ion-nav-bar>
 
+        <!--TODO what is with the name in ion-nav-view
+            -->
         <ion-nav-view name="startnewContent"></ion-nav-view>
     </ion-menu-content>
 
@@ -26,7 +28,7 @@
                 <ion-list>
                 <ion-item ng-if="projects != null && projects.length > 0">
                     <ion-list>
-                        <ion-item ng-repeat="project in projects">
+                        <ion-item ng-repeat="project in projects" href="#/app/runproject/{{project.id}}">
                         {{project.name}}
                         </ion-item>
                     </ion-list>

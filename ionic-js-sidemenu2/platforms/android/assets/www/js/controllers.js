@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('CreatenewCtrl', function ($scope, projectService) {
 
@@ -54,11 +54,11 @@ angular.module('starter.controllers', [])
 
     //Form data for the create new data modal
     $scope.project = projectService.getByid($stateParams.id);
+    $scope.showDelete= true;
 
     //CreateProject creates a project array with conditions
     $scope.createProject = function () {
-        var project = $scope.project
-        projectService.add(project)
+        projectService.save()
 
         history.back()
     }
@@ -75,12 +75,29 @@ angular.module('starter.controllers', [])
 
     }
 
+    $scope.remove = function (){
+        projectService.remove($scope.project.id)
+        $scope.back()
+    }
+
     $scope.back = function () {
         history.back()
     }
 })
 
-.factory('projectService', function () {
+.controller('RunprojectCtrl', function ($scope, $stateParams, projectService, $state) { 
+    $scope.project = projectService.getByid($stateParams.id)
+
+    $scope.run = function () {
+    $state.go('app.firinginprocess')
+    }
+
+    $scope.back = function () {
+        history.back()
+    }
+})
+
+.factory('projectService', function() {
     var projects = localStorage.getItem("projects")
     if (projects == null) {
         projects = []
@@ -104,6 +121,8 @@ angular.module('starter.controllers', [])
     }
 
     function add(project) {
+        console.log("adding")
+        console.trace()
         if (project.id == null) {
             project.id = projects.length+1 
         }
@@ -124,6 +143,17 @@ angular.module('starter.controllers', [])
         save()
     }
 
+    //Delete Project
+    function remove(id) {
+        projects = projects.filter(function (project) {
+            return project.id != id
+        })
+
+        console.log(projects)
+
+        save()
+    }
+
     //Save
     function save() {
         localStorage.setItem("projects", JSON.stringify(projects))
@@ -133,7 +163,8 @@ angular.module('starter.controllers', [])
         getAll: getAll,
         getByid: getByid,
         add: add,
-        save: save
+        save: save,
+        remove: remove
 
     }
-});
+})

@@ -89,6 +89,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
            }
        })
 
+
+  //Dispay Program to run
+       .state('app.runproject', {
+           url: '/runproject/:id',
+           views: {
+               'mainmenuContent': {
+                   templateUrl: 'templates/runproject.html',
+                   controller: 'RunprojectCtrl'
+               }
+           }
+       })
+
     //Warm Kiln child of Home Menu
       .state('app.warmkiln', {
           url: '/warmkiln',
@@ -120,6 +132,51 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
           }
       })
+
+      //Firing Process Begins
+    .state('app.firinginprocess', {
+        url: '/firinginprocess',
+        views: {
+            'mainmenuContent': {
+                templateUrl: 'templates/firinginprocess.html',
+
+            }
+        }
+    })
+
+      //Firing Cycles
+    .state('app.firingcycles', {
+        url: '/firingcycles',
+        views: {
+            'mainmenuContent': {
+                templateUrl: 'templates/firingcylces.html',
+
+            }
+        }
+    })
+
+      //Firing Kiln Status
+    .state('app.kilnstatus', {
+        url: '/kilnstatus',
+        views: {
+            'mainmenuContent': {
+                templateUrl: 'templates/kilnstatus.html',
+
+            }
+        }
+    })
+
+      //Firing menu
+    .state('app.firingmenu', {
+        url: '/firingmenu',
+        views: {
+            'mainmenuContent': {
+                templateUrl: 'templates/firingmenu.html',
+
+            }
+        }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/homemenu');
 });
