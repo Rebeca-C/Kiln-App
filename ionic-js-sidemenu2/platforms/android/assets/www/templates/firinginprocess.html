@@ -6,21 +6,59 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <form ng-submit="createProject()">
-            <div class="list">
-                <h2>
-                    Firing in Process
-                </h2>
-                <label class="item">
-                    <button class="button button-block button-positive" type="button" ng-click="removeCondition()">Remove Condition</button>
-                </label>
-                <label class="item">
-                    <button class="button button-block button-positive" type="submit">^</button>
-                </label>
-                <label class="item">
-                    <button class="button button-block button-positive">Safe Shutoff</button>
-                </label>
-            </div>
-        </form>
+        <ion-slides pager>
+            <ion-slide>
+                <div class="list">
+                    <h2>
+                        Firing in Process
+                    </h2>
+                    <div class="temperature-table">
+                        <span>
+                            {{formatTemperature(0, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(1, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(2, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(3, 4)}}
+                        </span> F
+                    </div>
+                    <div>
+                        <button class="button button-block button-positive" type="button" ng-click="cancelCreate()">
+                            Safe Shutdown
+                        </button>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="list">
+                    <h2>
+                        Firing in Process
+                    </h2>
+                    <div class="temperature-table">
+                        <span>
+                            {{formatTemperature(0, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(1, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(2, 4)}}
+                        </span>
+                        <span>
+                            {{formatTemperature(3, 4)}}
+                        </span> F
+                    </div>
+                    <div>
+                        <button class="button button-block button-positive" type="button" ng-click="cancelCreate()">
+                            Safe Shutdown
+                        </button>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
     </ion-content>
 </ion-modal-view>>

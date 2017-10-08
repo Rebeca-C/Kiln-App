@@ -139,6 +139,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         views: {
             'mainmenuContent': {
                 templateUrl: 'templates/firinginprocess.html',
+                controller: 'FiringCtrl'
 
             }
         }

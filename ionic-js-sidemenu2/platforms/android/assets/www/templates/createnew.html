@@ -19,18 +19,20 @@
                 <div ng-repeat="condition in project.condition track by $index">
                     <label class="item item-input">
                         <span class="input-label">To</span>
-                        <input type="number" required min="0" max="2000" ng-model="condition.temperature"> F
+                        <input type="number" required min="0" max="2000" ng-model="condition.temperature">
+                        <span>F</span> 
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Ramp Speed</span>
-                        <input type="number" required min="0" max="300" ng-model="condition.rampspeed"> degrees/hour
+                        <input type="number" required min="0" max="300" ng-model="condition.rampspeed">
+                        <span>degrees/hour</span> 
                         <!--TODO set max for ramp speed look up in manual-->
                     </label>
                     <label class="item item-input">
                         <span class="input-label">maintain for</span>
                         <!--TODO set in hours instead of minutes-->
                         <input type="number" required min="0" ng-model="condition.time">
-                        minutes
+                       <span>minutes</span> 
                     </label>
                 </div>
                 <label class="item project-button">

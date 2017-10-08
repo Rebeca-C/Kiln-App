@@ -97,6 +97,22 @@ angular.module('starter.controllers', ['ionic'])
     }
 })
 
+.controller('FiringCtrl', function ($scope) {
+    $scope.temperature = 1000;
+
+    $scope.formatTemperature = function (index, size) {
+        if ($scope.temperature == null) {
+            return 0;
+        }
+
+        var format = $scope.temperature.toString()
+        if (size - index > format.length) {
+            return 0;
+        }
+        return format.charAt(index-(size-format.length))
+     }
+})
+
 .factory('projectService', function() {
     var projects = localStorage.getItem("projects")
     if (projects == null) {
@@ -121,10 +137,20 @@ angular.module('starter.controllers', ['ionic'])
     }
 
     function add(project) {
-        console.log("adding")
-        console.trace()
+        
+        
         if (project.id == null) {
-            project.id = projects.length+1 
+            var total=localStorage.getItem("totalprojects") 
+            if (total == null) {
+                total = 0
+            }
+            //Converts string to number (LocalStorage stores as string)
+            else {
+                total=+total
+            }
+            total++
+            localStorage.setItem("totalprojects", total)
+            project.id = total
         }
         //Looks though Projects array and returns project id, to prevent duplicates
         var index = projects.findIndex(function (saveproject) {
@@ -168,3 +194,4 @@ angular.module('starter.controllers', ['ionic'])
 
     }
 })
+
